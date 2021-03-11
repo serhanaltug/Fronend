@@ -1,5 +1,6 @@
 import { Brand } from "./brand";
 
 export interface responseModel{
-    data:Brand[];
+    success:boolean;
+    message:string;
 }

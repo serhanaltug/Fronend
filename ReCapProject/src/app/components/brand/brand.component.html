@@ -2,15 +2,6 @@
     <span class="visually-hidden">Loading...</span>
 </div>
   
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let brand of brands">
-        <td>{{brand.id}}</td>
-        <td>{{brand.name}}</td>
-    </tr>
-</table>
+<ul class="list-group mt-2">
+    <li *ngFor="let brand of brands" class="list-group-item">{{brand.name}}</li>
+</ul>
