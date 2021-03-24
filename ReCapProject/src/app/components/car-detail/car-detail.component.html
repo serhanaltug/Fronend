@@ -1,0 +1,23 @@
+<div *ngIf="car">
+    <h4>{{car.brandName}} {{car.carName}}</h4>
+    <span>Color: {{car.colorName}}</span>
+    <span>Price: {{car.dailyPrice}}</span>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <input type="date" class="form-control" [(ngModel)]="beginDate" [value]="beginDate">
+    </div>
+    <div class="col">
+        <input type="date" class="form-control" [(ngModel)]="endDate" [value]="endDate">
+    </div>
+    <div class="col">
+        <button class="btn btn-primary" (click)="checkRental(car)">Kontrol et</button>
+    </div>
+    <br><br>
+    <a class="btn btn-outline-success {{rentable}}" (click)="checkout()">Kirala</a>
+</div>
+<hr>
+
+<div><img *ngFor="let image of carImages" src="https://localhost:5001/images/{{image.imagePath}}" class="img-thumbnail" width="200"/></div>

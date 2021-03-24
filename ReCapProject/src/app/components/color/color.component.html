@@ -3,5 +3,7 @@
 </div>
   
 <ul class="list-group mt-2">
-    <li *ngFor="let color of colors" class="list-group-item">{{color.name}}</li>
+    <li (click)="setCurrentColor(color)" 
+    routerLink="cars/color/{{color.id}}"
+    *ngFor="let color of colors" [class]="getCurrentColorClass(color)">{{color.name}}</li>
 </ul>
