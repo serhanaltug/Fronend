@@ -1,0 +1,48 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Araç ekle</h5>
+            </div>
+            <div class="card-body">
+
+                <form [formGroup]="carUpdateForm">
+                    <input type="hidden" id="id" formControlName="id" />
+                    <div class="mb-3">
+                        <label for=carName>Araç Adı</label>
+                        <input type="text" id="carName" formControlName="name" class="form-control" placeholder="Araç adı" />
+                    </div>
+                    <div class="mb-3">
+                        <label for=carName>Araç Açıklaması</label>
+                        <input type="text" id="carDescription" formControlName="description" class="form-control" placeholder="Araç açıklaması" />
+                    </div>
+                    <div class="mb-3">
+                        <label for=carName>Marka</label>
+                        <select class="form-control" formControlName="brandId">
+                            <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for=carName>Renk</label>
+                        <select class="form-control" formControlName="colorId">
+                            <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for=carName>Model yılı</label>
+                        <input type="number" id="modelYear" formControlName="modelYear" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for=carName>Günlük kira bedeli</label>
+                        <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-fill btn-primary" (click)="update()">Kaydet</button> 
+                        <button class="btn btn-fill btn-danger" routerLink="/admin/cars">İptal</button>
+                    </div>               
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

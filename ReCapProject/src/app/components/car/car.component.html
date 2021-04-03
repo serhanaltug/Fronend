@@ -2,48 +2,35 @@
     <span class="visually-hidden">Loading...</span>
 </div>
  
-<div class="row mb-3 mt-3">
-    <div class="col">
+<div class="row mt-3 mb-3">
+    <div class="col-md-6"><h4>Araçlar</h4></div>
+    <div class="col-md-5 d-flex justify-content-md-end">
         <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Aramak istediğiniz kelimeleri yazınız">
     </div>
-    <div class="col">
-        <select class="form-control" [(ngModel)]="selectedBrand">
-            <option value="0">Markalar</option>
-            <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
-        </select>
-    </div>
-    <div class="col">
-        <select class="form-control" [(ngModel)]="selectedColor">
-            <option value="0">Renkler</option>
-            <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
-        </select>
-    </div>
-    <div class="col">
-        <button (click)="filterCars(selectedBrand, selectedColor)" class="btn btn-primary">Filtrele</button>
-    </div>
+    <div class="col-md-1 d-flex justify-content-md-end"><a class="btn btn-primary" routerLink="/admin/cars/add">Yeni</a></div>
 </div>
 
 <div *ngIf="filterText.length>1" class="alert alert-warning">
     {{filterText}} aradınız
 </div>
 
-
-<h4>Car List</h4>
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Daily Price</th>
+            <th>Araç Adı</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let car of cars | filterPipe:filterText">
-        <td>{{car.carId}}</td>
-        <td><a routerLink="/cars/car/{{car.carId}}">{{car.carName}}</a></td>
-        <td>{{car.brandName | uppercase}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.dailyPrice}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let car of cars | filterPipe:filterText">
+            <td>{{car.carId}}</td>
+            <td>{{car.carName}}</td>
+            <td>{{car.brandName | uppercase}}</td>
+            <td>{{car.colorName}}</td>
+            <td class="d-flex justify-content-end"><a class="btn btn-sm btn-primary" routerLink="/admin/cars/update/{{car.carId}}">Edit</a></td>
+        </tr>
+    </tbody>
 </table>

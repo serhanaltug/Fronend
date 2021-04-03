@@ -1,0 +1,49 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+ 
+<div class="row mb-3 mt-3">
+    <div class="col">
+        <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Aramak istediğiniz kelimeleri yazınız">
+    </div>
+    <div class="col">
+        <select class="form-control" [(ngModel)]="selectedBrand">
+            <option value="0">Markalar</option>
+            <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-control" [(ngModel)]="selectedColor">
+            <option value="0">Renkler</option>
+            <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+        </select>
+    </div>
+    <div class="col">
+        <button (click)="filterCars(selectedBrand, selectedColor)" class="btn btn-primary">Filtrele</button>
+    </div>
+</div>
+
+<div *ngIf="filterText.length>1" class="alert alert-warning">
+    {{filterText}} aradınız
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marka</th>
+            <th>Araç Adı</th>
+            <th>Renk</th>
+            <th>Günlük Kira</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars | filterPipe:filterText">
+            <td>{{car.brandName | uppercase}}</td>
+            <td><a routerLink="/cars/car/{{car.carId}}">{{car.carName}}</a></td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.dailyPrice}}</td>
+            <td><a class="btn btn-sm btn-primary" routerLink="/cars/car/{{car.carId}}">Detay</a></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,9 +1,25 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-  
-<ul class="list-group mt-2">
-    <li (click)="setCurrentBrand(brand)" 
-    routerLink="cars/brand/{{brand.id}}"
-    *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
-</ul>
+ 
+<div class="row mt-3 mb-3">
+    <div class="col-md-6"><h4>Markalar</h4></div>
+    <div class="col-md-6 d-flex justify-content-md-end"><a class="btn btn-primary" routerLink="/admin/brands/add">Yeni</a></div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marka</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <td>{{brand.id}}</td>
+            <td>{{brand.name}}</td>
+            <td class="d-flex justify-content-end"><a class="btn btn-sm btn-primary" routerLink="/admin/brands/update/{{brand.id}}">Düzenle</a></td>
+        </tr>
+    </tbody>
+</table>

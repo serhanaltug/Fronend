@@ -2,18 +2,18 @@
     <span class="visually-hidden">Loading...</span>
 </div>
  
-<h4>Customers</h4>
+<h4>Müşteriler</h4>
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Compnay</th>
+            <th>Müşteri Adı</th>
+            <th>Firma</th>
         </tr>
     </thead>
-    <tr *ngFor="let customer of customers">
-        <td>{{customer.customerId}}</td>
-        <td>{{customer.customerName}}</td>
-        <td>{{customer.companyName}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.customerName}}</td>
+            <td>{{customer.companyName}}</td>
+        </tr>
+    </tbody>
 </table>

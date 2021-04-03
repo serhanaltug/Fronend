@@ -2,28 +2,24 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<h4>Rentals</h4>
+<h4>Kiralamalar</h4>
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>CarId</th>
-            <th>Car Name</th>
-            <th>Brand Name</th>
-            <th>Customer Id</th>
-            <th>Customer Name</th>
-            <th>Rent Date</th>
-            <th>Return Date</th>
+            <th>Marka</th>
+            <th>Araç Adı</th>
+            <th>Müşteri</th>
+            <th>Kiralama Tarihi</th>
+            <th>Geri Getirme Tarihi</th>
         </tr>
     </thead>
-    <tr *ngFor="let rental of rentals">
-        <td>{{rental.id}}</td>
-        <td>{{rental.carId}}</td>
-        <td>{{rental.carName}}</td>
-        <td>{{rental.brandName}}</td>
-        <td>{{rental.customerId}}</td>
-        <td>{{rental.customerName}}</td>
-        <td>{{rental.rentDate}}</td>
-        <td>{{rental.returnDate}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let rental of rentals">
+            <td>{{rental.brandName}}</td>
+            <td>{{rental.carName}}</td>
+            <td>{{rental.customerName}}</td>
+            <td>{{rental.rentDate}}</td>
+            <td>{{rental.returnDate}}</td>
+        </tr>
+    </tbody>
 </table>

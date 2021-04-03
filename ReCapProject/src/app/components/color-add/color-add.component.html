@@ -1,0 +1,23 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Renk ekle</h5>
+            </div>
+            <div class="card-body">
+
+                <form [formGroup]="colorAddForm">
+                    <div class="mb-3">
+                        <label for=name>Renk Adı</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Renk" />
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-fill btn-primary" (click)="add()">Kaydet</button>
+                        <button class="btn btn-fill btn-danger" routerLink="/admin/colors">İptal</button>
+                    </div>               
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
